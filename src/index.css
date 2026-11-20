@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(10, 15, 30, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(244, 63, 94, 0.35);
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(244, 63, 94, 0.7);
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card-glow {
+  box-shadow: 0 0 35px -5px rgba(244, 63, 94, 0.2), 0 0 20px -3px rgba(168, 85, 247, 0.15);
+}
+
+/* Living Aurora Animated Mesh in Background */
+.aurora-bg {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.aurora-blob-1 {
+  position: absolute;
+  top: -10%;
+  left: 15%;
+  width: 60vw;
+  height: 60vw;
+  max-width: 800px;
+  max-height: 800px;
+  background: radial-gradient(circle, rgba(244, 63, 94, 0.18) 0%, rgba(168, 85, 247, 0.12) 40%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(90px);
+  animation: auroraMorph1 22s ease-in-out infinite alternate;
+}
+
+.aurora-blob-2 {
+  position: absolute;
+  bottom: 5%;
+  right: 10%;
+  width: 65vw;
+  height: 65vw;
+  max-width: 850px;
+  max-height: 850px;
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.16) 0%, rgba(236, 72, 153, 0.12) 45%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(100px);
+  animation: auroraMorph2 26s ease-in-out infinite alternate;
+}
+
+.aurora-blob-3 {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+  height: 50vw;
+  max-width: 700px;
+  max-height: 700px;
+  background: radial-gradient(circle, rgba(251, 146, 60, 0.1) 0%, rgba(244, 63, 94, 0.08) 50%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(110px);
+  animation: auroraMorph3 18s ease-in-out infinite alternate;
+}
+
+@keyframes auroraMorph1 {
+  0% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(60px, 80px) scale(1.15); }
+  100% { transform: translate(-40px, 40px) scale(0.95); }
+}
+
+@keyframes auroraMorph2 {
+  0% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(-70px, -60px) scale(1.2); }
+  100% { transform: translate(50px, -40px) scale(0.9); }
+}
+
+@keyframes auroraMorph3 {
+  0% { transform: translate(-50%, -50%) scale(0.9); }
+  50% { transform: translate(-45%, -55%) scale(1.18); }
+  100% { transform: translate(-55%, -48%) scale(1.0); }
+}
+
+/* Text Shimmer Effect */
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(253, 164, 175, 1) 25%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(244, 114, 182, 1) 75%,
+    rgba(255, 255, 255, 0.95) 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 8s linear infinite;
+}
+
+/* Glowing Border Box */
+.glowing-box-border {
+  position: relative;
+  background: linear-gradient(135deg, rgba(244, 63, 94, 0.4), rgba(168, 85, 247, 0.3), rgba(251, 146, 60, 0.4));
+  padding: 2px;
+  border-radius: 1.75rem;
+  box-shadow: 0 0 50px -10px rgba(244, 63, 94, 0.35), 0 0 30px -5px rgba(168, 85, 247, 0.25);
+}
+
+.glowing-box-inner {
+  background: linear-gradient(180deg, rgba(17, 24, 39, 0.92) 0%, rgba(30, 15, 35, 0.92) 100%);
+  border-radius: calc(1.75rem - 2px);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* Floating Balloons & Hearts Animation */
+@keyframes floatUpAndSway {
+  0% {
+    transform: translateY(105vh) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.95;
+  }
+  50% {
+    transform: translateY(50vh) translateX(30px) rotate(10deg);
+  }
+  90% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translateY(-25vh) translateX(-30px) rotate(-10deg);
+    opacity: 0;
+  }
+}
+
+.animate-floating-balloon {
+  animation: floatUpAndSway linear forwards;
+}
+
+/* Shake Animation for Locked Box */
+@keyframes shake {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  20% { transform: translateX(-8px) rotate(-4deg); }
+  40% { transform: translateX(8px) rotate(4deg); }
+  60% { transform: translateX(-6px) rotate(-2deg); }
+  80% { transform: translateX(6px) rotate(2deg); }
+}
+
+.animate-shake {
+  animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
