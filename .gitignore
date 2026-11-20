@@ -28,3 +28,5 @@ dist-ssr
 extracted_raw_text.txt
 cleaned_letter.txt
 find_parts.js
+
+.vercel
