@@ -1,0 +1,10 @@
+node_modules
+dist
+.git
+*.docx
+*.ps1
+extracted_raw_text.txt
+cleaned_letter.txt
+clean_text.js
+find_parts.js
+prepare_letter_data.js
